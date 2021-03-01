@@ -1,0 +1,25 @@
+.btn svg {
+  margin-right: 10px;
+}
+
+.cart {
+  position: fixed;
+  min-width: 285px;
+}
+.checkout-btn {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  width: 100%;
+  margin-top: 12px;
+}
+
+@media (max-width: 991px) {
+  .cart {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    height: auto;
+  }
+}
