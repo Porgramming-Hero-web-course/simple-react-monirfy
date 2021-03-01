@@ -1,22 +1,37 @@
 import React from 'react';
+import { useState } from 'react';
 import './Cart.css';
-<img src="" alt="" />;
+<img src='' alt='' />;
 const Cart = ({ cart }) => {
   const total = cart.reduce((salary, curr) => salary + curr.price, 0);
+  const [catrbar, setCartbar] = useState(false);
+
+  const chanbeBg = () => {
+    if (window.scrollY >= 350) {
+      setCartbar(true);
+    } else {
+      setCartbar(false);
+    }
+  };
+
+  window.addEventListener('scroll', chanbeBg);
+
   return (
-    <div className="bg-light cart rounded p-3">
-      <p className="text-center lead">Player In cart ({cart.length})</p>
-      <ul className="list-group mt-3 mb-5">
-        {cart.map(product => (
-          <li key={product.id} className="list-group-item">
-            <img src={product.image} alt="" /> {product.name} - {product.price} $
-          </li>
-        ))}
-      </ul>
-      <div className="checkout-btn text-center">
-        <button className="btn btn-danger w-100">Total {total} $ </button>
+    <>
+      <div className={catrbar ? 'cart bg-light p-2 active' : 'cart bg-light p-2 bg-light'}>
+        <p className='text-center lead'>Players In Cart ({cart.length})</p>
+        <ul className='list-group my-4'>
+          {cart.map((product) => (
+            <li key={product.id} className='list-group-item'>
+              {product.name} - {product.price} $
+            </li>
+          ))}
+        </ul>
+        <div className='checkout-btn text-center'>
+          <button className='btn btn-danger w-100'>Total {total} $ </button>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
