@@ -5,13 +5,18 @@
 .cart {
   position: fixed;
   min-width: 285px;
+  overflow-y: scroll;
+  height: calc(90vh - 393px);
+  overflow-x: hidden;
+  overflow-y: auto;
+  margin-bottom: 30px;
 }
 .checkout-btn {
   position: absolute;
-  right: 0;
-  top: 100%;
+  bottom: 1rem;
   width: 100%;
-  margin-top: 12px;
+  margin: 0 -1rem;
+  padding: 0 1rem;
 }
 
 @media (max-width: 991px) {
@@ -20,6 +25,16 @@
     width: 100%;
     bottom: 0;
     left: 0;
-    height: auto;
+    height: calc(30vh - 0px);
+    overflow-x: hidden;
+    overflow-y: auto;
+    margin-bottom: 0;
+  }
+  .checkout-btn {
+    position: inherit;
+    bottom: 1rem;
+    width: 100%;
+    margin: 0 -1rem;
+    padding: 0 1rem;
   }
 }
